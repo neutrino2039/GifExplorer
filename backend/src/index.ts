@@ -8,10 +8,6 @@ const app: Express = express();
 
 app.use(express.json());
 
-app.get("/", (_req, res) => {
-  res.status(200).json("Hello GIF Explorer!!!");
-});
-
 app.use("/api/gifs", gifsRouter);
 
 app.use(globalErrorHandler);
