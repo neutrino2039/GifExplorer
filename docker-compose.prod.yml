@@ -1,6 +1,14 @@
 name: "gif-explorer"
 
 services:
+  backedn-prod:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile.prod
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
   frontend-prod:
     build:
       context: ./frontend
