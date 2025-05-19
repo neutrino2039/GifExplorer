@@ -5,8 +5,8 @@ import { gify } from "./api";
 export const content = (req: Request, res: Response, next: NextFunction) => {
   try {
     const apiKey = config.GIPHY_API_KEY;
-    const limit = req.params.limit ?? 10;
-    const offset = req.params.offset ?? 0;
+    const limit = req.query.limit;
+    const offset = req.query.offset;
 
     gify
       .get(`/trending/?api_key=${apiKey}&limit=${limit}&offset=${offset}`)
