@@ -3,11 +3,13 @@ import dotenv from "dotenv";
 dotenv.config();
 
 type Config = {
-  port: number;
-  nodeEnv: string;
+  PORT: number;
+  NODE_ENV: string;
+  GIPHY_API_KEY: string;
 };
 
 export const config: Config = {
-  port: Number(process.env.PORT) || 3000,
-  nodeEnv: process.env.NODE_ENV || "development",
+  PORT: Number(process.env.PORT) || 3000,
+  NODE_ENV: process.env.NODE_ENV || "development",
+  GIPHY_API_KEY: process.env.GIPHY_API_KEY || "",
 };
