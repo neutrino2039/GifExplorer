@@ -1,5 +1,6 @@
 import express, { Express } from "express";
 import { config } from "./config/config";
+import { _404Handler } from "./middlewares/404Handler";
 import { globalErrorHandler } from "./middlewares/globalErrorHandler";
 import { gifsRouter } from "./routes/gifsRouter";
 
@@ -14,6 +15,8 @@ app.get("/", (_req, res) => {
 app.use("/api/gifs", gifsRouter);
 
 app.use(globalErrorHandler);
+
+app.use(_404Handler);
 
 app.listen(config.PORT, () => {
   console.log(`App is listening on port ${config.PORT}`);
