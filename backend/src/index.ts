@@ -1,5 +1,6 @@
 import express, { Express } from "express";
 import { config } from "./config/config";
+import { globalErrorHandler } from "./middlewares/globalErrorHandler";
 import { gifsRouter } from "./routes/gifsRouter";
 
 const app: Express = express();
@@ -11,6 +12,8 @@ app.get("/", (_req, res) => {
 });
 
 app.use("/api/gifs", gifsRouter);
+
+app.use(globalErrorHandler);
 
 app.listen(config.PORT, () => {
   console.log(`App is listening on port ${config.PORT}`);
