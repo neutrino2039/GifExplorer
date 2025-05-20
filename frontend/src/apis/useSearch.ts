@@ -5,10 +5,10 @@ import {
 import { api } from "./api";
 import { LIMIT } from "./constants";
 
-export const useFetchContent = () =>
+export const useSearch = (text: string, enabled: boolean) =>
   useInfiniteQuery({
-    queryKey: ["content"],
-    queryFn: fetchContent,
+    queryKey: ["search"],
+    queryFn: search(text),
     initialPageParam: 0,
     getNextPageParam: (lastPage, pages) => {
       const nextOffset = pages.length * LIMIT;
@@ -16,9 +16,14 @@ export const useFetchContent = () =>
         ? nextOffset
         : undefined;
     },
+    enabled,
   });
 
-const fetchContent = async ({ pageParam }: QueryFunctionContext) => {
-  const result = await api.get(`content/?offset=${pageParam}&limit=${LIMIT}`);
-  return result.data;
-};
+const search =
+  (text: string) =>
+  async ({ pageParam }: QueryFunctionContext) => {
+    const result = await api.get(
+      `search/?offset=${pageParam}&limit=${LIMIT}&q=${text}`
+    );
+    return result.data;
+  };
