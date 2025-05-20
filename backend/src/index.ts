@@ -1,5 +1,6 @@
 import cors from "cors";
 import express, { Express } from "express";
+import morgan from "morgan";
 import { config } from "./config/config";
 import { _404Handler } from "./middlewares/404Handler";
 import { globalErrorHandler } from "./middlewares/globalErrorHandler";
@@ -9,6 +10,9 @@ import { healthRouter } from "./routes/healthRouter";
 const app: Express = express();
 
 app.use(cors());
+
+// logging
+app.use(morgan(config.NODE_ENV === "development" ? "dev" : "combined"));
 
 app.use(express.json());
 
