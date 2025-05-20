@@ -1,9 +1,9 @@
 import { Router } from "express";
 import { content, search } from "../controllers/gifsController";
 
-const gifsRouter = Router();
+const router = Router();
 
-gifsRouter.get("/content", content);
-gifsRouter.get("/search", search);
+router.get("/content", content);
+router.get("/search", search);
 
-export { gifsRouter };
+export { router as gifsRouter };
