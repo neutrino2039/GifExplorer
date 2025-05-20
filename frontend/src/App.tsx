@@ -1,11 +1,8 @@
 import "./App.css";
+import { Content } from "./features";
 
 function App() {
-  return (
-    <>
-      <h1 className="text-9xl font-bold underline">Hello world!</h1>
-    </>
-  );
+  return <Content />;
 }
 
 export default App;

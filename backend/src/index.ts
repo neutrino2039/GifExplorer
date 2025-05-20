@@ -1,3 +1,4 @@
+import cors from "cors";
 import express, { Express } from "express";
 import { config } from "./config/config";
 import { _404Handler } from "./middlewares/404Handler";
@@ -6,12 +7,13 @@ import { gifsRouter } from "./routes/gifsRouter";
 
 const app: Express = express();
 
+app.use(cors());
+
 app.use(express.json());
 
 app.use("/api/gifs", gifsRouter);
 
 app.use(globalErrorHandler);
-
 app.use(_404Handler);
 
 app.listen(config.PORT, () => {
