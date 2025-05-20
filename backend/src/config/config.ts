@@ -10,6 +10,6 @@ type Config = {
 
 export const config: Config = {
   PORT: Number(process.env.PORT) || 3000,
-  NODE_ENV: process.env.NODE_ENV || "development",
+  NODE_ENV: process.env.NODE_ENV || "production",
   GIPHY_API_KEY: process.env.GIPHY_API_KEY || "",
 };

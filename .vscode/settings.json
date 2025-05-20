@@ -5,5 +5,5 @@
   "editor.codeActionsOnSave": {
     "source.organizeImports": "always"
   },
-  "cSpell.words": ["gifs", "gify", "GIPHY"]
+  "cSpell.words": ["gifs", "gify", "GIPHY", "VITE"]
 }
